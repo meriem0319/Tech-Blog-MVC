@@ -9,14 +9,13 @@
       rel="stylesheet"
     />
     {{! might use custom css  }}
-    <link rel="stylesheet" href="/public/css/" />
+    <link rel="stylesheet" href="/public/css/style.css" />
   </head>
   <body class="flex-column min-100-vh">
     <nav class="navbar">
-      <ul>
+      <ul class="flex-row">
         <li class="li-inline nav-item"><a href="/">Home</a></li>
         <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="li-inline nav-item"><a href="/login">Login</a></li>
         <li class="li-inline nav-item"><a
             href="#"
             id="logout-link"
@@ -26,8 +25,8 @@
 
     <header class="hero">
       <h1 class="app-title">
-        <a href="/">
-          "Time to Tech" Blog
+        <a href="/dashboard">
+          Your Dashboard
         </a>
       </h1>
     </header>
@@ -38,10 +37,12 @@
 
     </main>
 
-    <footer class="flex-row justify-center">
-      &copy; The "Time to Tech" Blog Geeks
+    <footer class="footer flex-row justify-center">
+      <a href="/dashboard/new">+ New Post</a>
     </footer>
 
   </body>
-  <script src="/public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
+  <script src="/js/edit.js"></script>
+  <script src="/js/delete.js"></script>
 </html>
