@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 
 //all posts
-router.get("/", (req, res) => [
+router.get("/", (req, res) => {
   Post.findAll({
     include: [User],
   })
@@ -12,8 +12,8 @@ router.get("/", (req, res) => [
     })
     .catch((err) => {
       res.status(500).json(err);
-    }),
-]);
+    });
+});
 
 //one post
 router.get("/post/:id", (req, res) => {
