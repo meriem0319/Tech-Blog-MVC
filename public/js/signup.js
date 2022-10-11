@@ -1,5 +1,5 @@
-const signupForm = async function (e) {
-  e.preventDefault();
+const signupForm = async function (event) {
+  event.preventDefault();
 
   const usernameElement = document.querySelector("#username-input-signup");
   const passwordElement = document.querySelector("#password-input-signup");

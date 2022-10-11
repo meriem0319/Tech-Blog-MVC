@@ -50,7 +50,7 @@ router.get("/login", (req, res) => {
 
 //sign-up
 router.get("/signup", (req, res) => {
-  if (req.session.loggedIn) {
+  if (!req.session.loggedIn) {
     res.redirect("/");
     return;
   }

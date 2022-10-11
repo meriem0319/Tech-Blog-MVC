@@ -1,6 +1,6 @@
-const deletePost = async function (e) {
-  console.log("clicked", e);
-  e.preventDefault();
+const deletePost = async function (event) {
+  console.log("clicked", event);
+  event.preventDefault();
   const postId = document.getElementById("post-id");
 
   fetch("/api/post/" + postId.value, {

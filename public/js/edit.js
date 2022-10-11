@@ -1,5 +1,5 @@
-const editForm = async function (e) {
-  e.preventDefault();
+const editForm = async function (event) {
+  event.preventDefault();
 
   const titleElement = document.getElementById("post-title");
   const bodyElement = document.getElementById("post-body");
