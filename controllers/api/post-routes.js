@@ -2,13 +2,22 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+router.get("/", (req, res) => {
+  Post.findAll()
+    .then((postData) => res.json(postData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 //new post
 router.post("/", withAuth, (req, res) => {
   const body = req.body;
   console.log(req.session.userId);
   Post.create({ ...body, userId: req.session.userId })
-    .then((newPost) => {
-      res.json(newPost);
+    .then((postData) => {
+      res.json(postData);
     })
     .catch((err) => {
       res.status(500).json(err);
@@ -23,8 +32,8 @@ router.put("/:id", withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-    .then((affectedRows) => {
-      if (affectedRows > 0) {
+    .then((postData) => {
+      if (postData > 0) {
         res.status(200).end();
       } else {
         res.status(404).end();
@@ -43,8 +52,8 @@ router.delete("/:id", withAuth, (req, res) => {
       id: req.params.id,
     },
   })
-    .then((affectedRows) => {
-      if (affectedRows > 0) {
+    .then((postData) => {
+      if (postData > 0) {
         res.status(200).end();
       } else {
         res.status(404).end();
