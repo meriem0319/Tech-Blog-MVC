@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+//new post
 router.post("/", withAuth, (req, res) => {
   const body = req.body;
   console.log(req.session.userId);
@@ -14,6 +15,7 @@ router.post("/", withAuth, (req, res) => {
     });
 });
 
+//update post
 router.put("/:id", withAuth, (req, res) => {
   console.log(req.body, req.params.id);
   Post.update(req.body, {
@@ -33,6 +35,7 @@ router.put("/:id", withAuth, (req, res) => {
     });
 });
 
+//delete post
 router.delete("/:id", withAuth, (req, res) => {
   console.log(req.body, req.params.id);
   Post.destroy({
